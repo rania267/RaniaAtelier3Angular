@@ -1,0 +1,66 @@
+
+
+  <form #f="ngForm">
+    <fieldset>
+    <div class="form-group">
+      
+      <tr>informations general</tr>
+      <label for="exampleInputnom">nom</label>
+      <input type="text" class="form-control" name="nom" placeholder="Enter nom" required ngModel #n="ngModel">
+      <div *ngIf="n.touched && n.invalid">
+          <div>name is required</div>
+
+      </div>
+  </div>
+
+  <div class="form-group">
+      <label for="exampleInputemail">Email</label>
+      <input type="text" class="form-control" name="Email" placeholder="Enter Email" ngModel #E="ngModel" required pattern="[a-zA-Z0-9]+.[a-zA-Z0-9]+@[a-zA-Z0-9]{3}">
+      <div *ngIf="E.touched && E.invalid">
+          <div>Email is required</div>
+          <div>respecter format de l email</div>
+
+      </div>
+  </div>
+  <div class="form-group">
+      <tr>informations de payement</tr>
+      <label for="exampleInputcarte">type de carte</label>
+      <input type="text" class="form-control" name="type de carte" placeholder="Enter carte" required ngModel #c="ngModel">
+      <div *ngIf="c.touched && c.invalid">
+          <div>typecarte is required</div>
+
+      </div>
+
+  </div>
+  <div class="form-group">
+      <label for="exampleInputexpiration">date dexpiration</label>
+      <input type="text" class="form-control" name="date dexpiration" placeholder="Enter date" required #date="ngModel" ngModel>
+      <div *ngIf="date.touched && date.invalid ">
+          <div>date is required</div>
+
+      </div>
+  </div>
+  <div class="form-group ">
+      <label for="exampleInputcode ">code</label>
+      <input type="text " class="form-control " name="code " placeholder="Enter code ">
+
+  </div>
+
+  <div class="form-group">
+      <label for="exampleInputcarte1">num de carte</label>
+      <input type="text" class="form-control" name="num de carte" placeholder="Enter num carte" required length="16" ngModel #num="ngModel">
+      <div *ngIf="c.touched && c.invalid">
+          <div>numcarte is required</div>
+          <div>longeur de num de carte doit etre 16</div>
+
+      </div>
+  </div>
+
+     
+
+    <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Save</button>
+    </fieldset>
+  </form>
+
+
+

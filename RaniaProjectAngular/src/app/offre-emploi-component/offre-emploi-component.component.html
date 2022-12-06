@@ -1,0 +1,17 @@
+
+
+<form>
+
+<label> search</label>
+<input type="text" name="emploi" class="form-control" >
+</form>
+<table class="table" border="3">
+    <tr><th>reference</th><th>titre</th><th>entreprise</th><th>etat</th></tr>
+<tbody *ngFor="let emploi of emploilist" let i="index">
+    <td>{{emploi.reference}}</td>
+    <td>{{emploi.titre}}</td>
+    <td>{{emploi.entreprise}}</td>
+    <td>{{emploi.etat}}</td>
+    <td><button [disabled]="emploi.etat==false">ena</button></td>
+</table>
+

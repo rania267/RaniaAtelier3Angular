@@ -1,0 +1,48 @@
+<form #f="ngForm">
+    <div class="form-group">
+      <label for="contenu">contenu</label>
+      
+    <input type="text" class="form-control" id="contenu" placeholder="Enter email" name="contenu" [(ngModel)]="produit.contenu" #contenu="ngModel">
+    <div *ngIf="contenu.touched && contenu.invalid">
+    <div class="alert alert-danger" *ngIf="contenu.errors?.['required']"> contenu is required</div>
+    <div class="alert alert-danger" *ngIf="contenu.errors?.['minlength']"> contenu min = 3</div>
+</div>
+</div>
+    
+  
+
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">auteur</label>
+      <input type="text" required minlength="3" class="form-control" id="exampleInputPassword1" placeholder="auteur" name="auteur" [(ngModel)]="produit.auteur" #auteur="ngModel">
+    <div *ngIf="auteur.touched && auteur.invalid">
+      <div class="alert alert-danger" *ngIf="auteur.errors?.['required']"> auteur is required</div>
+      <div class="alert alert-danger" *ngIf="auteur.errors?.['required']"> auteur min = 3</div>
+    </div>
+     </div>
+
+     
+    <div class="form-check">
+    <label class="form-check-label" for="auteur" >date</label>
+    <input type="date"  id="date" name="date" [(ngModel)]="produit.date" required  #date="ngModel">
+    <div *ngIf="date.touched && date.invalid ">
+    <div class="alert alert-danger" *ngIf="date.errors?.['required']"> date is required</div>
+  
+    </div>
+</div>
+    <div class="form-group">
+        <label for="categorie">categorie</label>
+        <input type="text" class="form-control" id="categorie" placeholder="categorie" required minlength="10" name="categorie" [(ngModel)]="produit.categorie" #categorie="ngModel">
+        <div *ngIf="categorie.touched && categorie.invalid">
+        <div class="categorie alert-danger" *ngIf="date.errors?.['required']"> categorie is required</div>
+        <div class="categorie alert-danger" *ngIf="date.errors?.['minlength']"> categorie min = 3</div>
+    
+    </div>
+</div>
+    <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Save</button>
+  </form>
+
+  {{produit.contenu}}
+  {{produit.auteur}}
+  {{produit.categorie}}
+  {{produit.date}}
